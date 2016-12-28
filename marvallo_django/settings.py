@@ -41,7 +41,10 @@ DEFAULT_APPS = (
     'django.contrib.staticfiles'
 )
 
-LOCAL_APPS = ('myapp',)
+LOCAL_APPS = (
+            'quick',
+            
+)
 
 INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS
 
