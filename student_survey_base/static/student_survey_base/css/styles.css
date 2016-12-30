@@ -1,0 +1,21 @@
+html, body{
+    min-height:100%;
+    width: 100%;
+}
+form input {
+    margin:0.5em auto;
+}
+.navbar{
+    width:80%;
+    margin:auto 0;
+    display:block;
+}
+.container{
+    margin:10% 10%;
+    /*padding: 50% 20%;*/
+    position:relative;
+}
+
+.w3-lobster {
+    font-family: "Lobster", serif;
+}

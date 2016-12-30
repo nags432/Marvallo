@@ -1,0 +1,17 @@
+{% extends 'student_survey_base/index.html' %}
+{% block title %} Login Page{% endblock %}
+{% block content %}
+    <div class="page-container w3-display-middle">
+        <div id="login_form">
+            <h1 id="title-login" class="w3-text-lime w3-lobster w3-center">Student surveys</h1>
+            <form class="w3-margin" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <table class="w3-margin">{{ form.as_table }}</table>
+                <input id="login_btn" class="btn btn-primary w3-hover-green w3-round w3-margin" type="submit" value="Log In" />
+                {% if next %}
+                <input type="hidden" name="next" value="{{ next }}" />
+                {% endif %}
+            </form>
+        </div>
+    </div>
+{% endblock %}

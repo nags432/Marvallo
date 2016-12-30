@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'student_survey_base/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'student_survey_base/css/w3.css' %}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'student_survey_base/css/styles.css' %}"/>
+    <script type="text/javascript" src='{% static "student_survey_base/js/modules/jquery-3.1.1.min.js" %}'></script>
+    <meta charset="UTF-8">
+    <title>{%block title %}Test Page{% endblock %}</title>
+</head>
+<body class="w3-teal w3-text-black">
+{% block content %}
+    {% if user.is_authenticated %}
+    <div class="navbar w3-navbar w3-green w3-col w3-display-topmiddle  w3-border">
+        <ul>
+            {% if user.is_staff %}
+                <li class="w3-navitem"><a href='admin/'>Admin Page</a></li>
+            {% endif %}
+            <li class="w3-navitem">
+                <form method="post" class="col-xs-1 w3-display-topright" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <input id="exit_btn" type="submit" value="Exit" class="btn btn-primary w3-hover-green w3-round " />
+                    {% if next %}
+                    <input type="hidden" name="next" value="{{ next }}" />
+                    {% endif %}
+                </form>
+            </li>
+        </ul>
+    </div>
+        <div class="container">
+          <p><h1>main page</h1></p>
+          <p>Hello, {{user.username}}</p>
+          {% if user.first_name %}
+            <p><h3>user first name:</h3>{{user.first_name}}</p>
+          {% endif %}
+          {% if user.last_name %}
+            <p><h3>user last name:</h3>{{user.last_name}}</p>
+           {% endif %}
+          {% if user.date_joined %}
+            <p><h3>Date joined:</h3> {{user.date_joined}}</p>
+          {% endif %}
+            user group{{user.group}}{{request.user.groups}}
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+</body>
+</html>
