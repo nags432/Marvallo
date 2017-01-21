@@ -25,7 +25,7 @@ SECRET_KEY = ')$&wh^xqjfvrg)g^5*cxe2=_ft%o_cpruzccq2o90)@hi!4vl3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '192.168.0.111']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -87,9 +87,9 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'student_survey',  # database name
+        'NAME': 'marvallo_v1',  # database name
         'USER': 'root',            # root username
-        'PASSWORD': '123456abc',   # database root user`s password
+        'PASSWORD': 'rxdata',   # database root user`s password
         'HOST': 'localhost',       # Or an IP Address that your DB is hosted on
         'PORT': '3306',            # port of mysql server
         'OPTIONS': {
